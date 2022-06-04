@@ -1,0 +1,21 @@
+extends ./template
+
+block tabla
+    div(class="table-container")
+        h2 Lista de productos agregados
+        if products.length !== 0
+            table 
+                tr 
+                    th Nombre 
+                    th Precio 
+                    th Imagen
+                each product in products
+                    - let productImg = product.image;
+                    tr 
+                        td #{product.title}
+                        td #{product.price} 
+                        td 
+                            img(src=productImg, alt="Imagen")
+        else
+            h3 No hay productos para mostrar 
+        a(href="/") Mostrar formulario 

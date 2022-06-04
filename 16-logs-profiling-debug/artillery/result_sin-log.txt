@@ -1,0 +1,293 @@
+Statistical profiling result from sin-log-v8.log, (2282 ticks, 0 unaccounted, 0 excluded).
+
+ [Shared libraries]:
+   ticks  total  nonlib   name
+   2135   93.6%          C:\WINDOWS\SYSTEM32\ntdll.dll
+    142    6.2%          C:\Program Files\nodejs\node.exe
+
+ [JavaScript]:
+   ticks  total  nonlib   name
+      1    0.0%   20.0%  LazyCompile: *normalize node:path:304:12
+      1    0.0%   20.0%  LazyCompile: *isPathSeparator node:path:52:25
+      1    0.0%   20.0%  Function: ^processTicksAndRejections node:internal/process/task_queues:68:35
+      1    0.0%   20.0%  Function: ^parserOnIncoming node:_http_server:852:26
+      1    0.0%   20.0%  Function: ^Module._nodeModulePaths node:internal/modules/cjs/loader:583:37
+
+ [C++]:
+   ticks  total  nonlib   name
+
+ [Summary]:
+   ticks  total  nonlib   name
+      5    0.2%  100.0%  JavaScript
+      0    0.0%    0.0%  C++
+     22    1.0%  440.0%  GC
+   2277   99.8%          Shared libraries
+
+ [C++ entry points]:
+   ticks    cpp   total   name
+
+ [Bottom up (heavy) profile]:
+  Note: percentage shows a share of a particular caller in the total
+  amount of its parent calls.
+  Callers occupying less than 1.0% are not shown.
+
+   ticks parent  name
+   2135   93.6%  C:\WINDOWS\SYSTEM32\ntdll.dll
+
+    142    6.2%  C:\Program Files\nodejs\node.exe
+    100   70.4%    C:\Program Files\nodejs\node.exe
+     13   13.0%      Function: ^compileFunction node:vm:308:25
+     13  100.0%        Function: ^wrapSafe node:internal/modules/cjs/loader:1017:18
+     13  100.0%          Function: ^Module._compile node:internal/modules/cjs/loader:1057:37
+     12   92.3%            Function: ^Module._extensions..js node:internal/modules/cjs/loader:1112:37
+      1    7.7%            LazyCompile: ~Module._extensions..js node:internal/modules/cjs/loader:1112:37
+     12   12.0%      Function: ^stat node:internal/modules/cjs/loader:151:14
+      8   66.7%        Function: ^tryFile node:internal/modules/cjs/loader:384:17
+      8  100.0%          Function: ^tryExtensions node:internal/modules/cjs/loader:400:23
+      8  100.0%            Function: ^Module._findPath node:internal/modules/cjs/loader:494:28
+      4   33.3%        Function: ^Module._findPath node:internal/modules/cjs/loader:494:28
+      3   75.0%          Function: ^Module._resolveFilename node:internal/modules/cjs/loader:848:35
+      3  100.0%            Function: ^Module._load node:internal/modules/cjs/loader:757:24
+      1   25.0%          LazyCompile: ~Module._resolveFilename node:internal/modules/cjs/loader:848:35
+      1  100.0%            LazyCompile: ~Module._load node:internal/modules/cjs/loader:757:24
+      9    9.0%      Function: ^compileForInternalLoader node:internal/bootstrap/loaders:299:27
+      6   66.7%        Function: ^nativeModuleRequire node:internal/bootstrap/loaders:332:29
+      2   33.3%          Function: ~<anonymous> node:http:1:1
+      2  100.0%            Function: ^compileForInternalLoader node:internal/bootstrap/loaders:299:27
+      1   16.7%          LazyCompile: ~lazyRequire node:internal/crypto/util:67:21
+      1  100.0%            LazyCompile: ~get node:crypto:287:8
+      1   16.7%          Function: ~<anonymous> node:tls:1:1
+      1  100.0%            Function: ^compileForInternalLoader node:internal/bootstrap/loaders:299:27
+      1   16.7%          Function: ~<anonymous> node:internal/child_process:1:1
+      1  100.0%            Function: ^compileForInternalLoader node:internal/bootstrap/loaders:299:27
+      1   16.7%          Function: ~<anonymous> node:crypto:1:1
+      1  100.0%            Function: ^compileForInternalLoader node:internal/bootstrap/loaders:299:27
+      3   33.3%        Function: ^compileForPublicLoader node:internal/bootstrap/loaders:246:25
+      3  100.0%          Function: ^loadNativeModule node:internal/modules/cjs/helpers:44:26
+      3  100.0%            Function: ^Module._load node:internal/modules/cjs/loader:757:24
+      4    4.0%      Function: ^authenticate C:\Users\Leo\Desktop\16-logs-profiling-debug\node_modules\passport\lib\middleware\authenticate.js:94:31
+      3   75.0%        Function: ^handle C:\Users\Leo\Desktop\16-logs-profiling-debug\node_modules\express\lib\router\layer.js:86:49
+      3  100.0%          Function: ^trim_prefix C:\Users\Leo\Desktop\16-logs-profiling-debug\node_modules\express\lib\router\index.js:288:23
+      3  100.0%            LazyCompile: *next C:\Users\Leo\Desktop\16-logs-profiling-debug\node_modules\express\lib\router\index.js:176:16
+      1   25.0%        LazyCompile: *trim_prefix C:\Users\Leo\Desktop\16-logs-profiling-debug\node_modules\express\lib\router\index.js:288:23
+      1  100.0%          LazyCompile: *next C:\Users\Leo\Desktop\16-logs-profiling-debug\node_modules\express\lib\router\index.js:176:16
+      1  100.0%            Function: ^initialize C:\Users\Leo\Desktop\16-logs-profiling-debug\node_modules\passport\lib\middleware\initialize.js:51:29
+      3    3.0%      Function: ^realpathSync node:fs:2412:22
+      3  100.0%        Function: ^toRealPath node:internal/modules/cjs/loader:393:20
+      2   66.7%          Function: ^tryFile node:internal/modules/cjs/loader:384:17
+      2  100.0%            Function: ^tryExtensions node:internal/modules/cjs/loader:400:23
+      1   33.3%          Function: ^Module._findPath node:internal/modules/cjs/loader:494:28
+      1  100.0%            Function: ^Module._resolveFilename node:internal/modules/cjs/loader:848:35
+      3    3.0%      Function: ^compression C:\Users\Leo\Desktop\16-logs-profiling-debug\node_modules\compression\index.js:59:31
+      2   66.7%        Function: ^handle C:\Users\Leo\Desktop\16-logs-profiling-debug\node_modules\express\lib\router\layer.js:86:49
+      2  100.0%          Function: ^trim_prefix C:\Users\Leo\Desktop\16-logs-profiling-debug\node_modules\express\lib\router\index.js:288:23
+      2  100.0%            LazyCompile: *next C:\Users\Leo\Desktop\16-logs-profiling-debug\node_modules\express\lib\router\index.js:176:16
+      1   33.3%        LazyCompile: *trim_prefix C:\Users\Leo\Desktop\16-logs-profiling-debug\node_modules\express\lib\router\index.js:288:23
+      1  100.0%          LazyCompile: *next C:\Users\Leo\Desktop\16-logs-profiling-debug\node_modules\express\lib\router\index.js:176:16
+      1  100.0%            Function: ^jsonParser C:\Users\Leo\Desktop\16-logs-profiling-debug\node_modules\express\node_modules\body-parser\lib\types\json.js:98:30
+      2    2.0%      Function: ^writevGeneric node:internal/stream_base_commons:122:23
+      2  100.0%        Function: ^Socket._writeGeneric node:net:769:42
+      2  100.0%          Function: ^Socket._writev node:net:801:36
+      2  100.0%            Function: ^doWrite node:internal/streams/writable:398:17
+      2    2.0%      Function: ^stringify C:\Users\Leo\Desktop\16-logs-profiling-debug\node_modules\express\lib\response.js:1123:20
+      2  100.0%        Function: ^json C:\Users\Leo\Desktop\16-logs-profiling-debug\node_modules\express\lib\response.js:239:25
+      2  100.0%          Function: ^<anonymous> C:\Users\Leo\Desktop\16-logs-profiling-debug\server.js:113:18
+      2  100.0%            Function: ^handle C:\Users\Leo\Desktop\16-logs-profiling-debug\node_modules\express\lib\router\layer.js:86:49
+      2    2.0%      Function: ^readPackage node:internal/modules/cjs/loader:290:21
+      2  100.0%        Function: ^resolveExports node:internal/modules/cjs/loader:472:24
+      2  100.0%          Function: ^Module._findPath node:internal/modules/cjs/loader:494:28
+      2  100.0%            Function: ^Module._resolveFilename node:internal/modules/cjs/loader:848:35
+      2    2.0%      Function: ^read node:internal/modules/package_json_reader:16:14
+      2  100.0%        Function: ^readPackage node:internal/modules/cjs/loader:290:21
+      2  100.0%          Function: ^resolveExports node:internal/modules/cjs/loader:472:24
+      2  100.0%            Function: ^Module._findPath node:internal/modules/cjs/loader:494:28
+      2    2.0%      Function: ^digest node:internal/crypto/hash:115:40
+      1   50.0%        Function: ^hash C:\Users\Leo\Desktop\16-logs-profiling-debug\node_modules\express-session\index.js:596:14
+      1  100.0%          Function: ^generate C:\Users\Leo\Desktop\16-logs-profiling-debug\node_modules\express-session\index.js:363:22
+      1  100.0%            Function: ^session C:\Users\Leo\Desktop\16-logs-profiling-debug\node_modules\express-session\index.js:179:26
+      1   50.0%        Function: ^entitytag C:\Users\Leo\Desktop\16-logs-profiling-debug\node_modules\etag\index.js:39:20
+      1  100.0%          Function: ^etag C:\Users\Leo\Desktop\16-logs-profiling-debug\node_modules\etag\index.js:70:15
+      1  100.0%            Function: ^generateETag C:\Users\Leo\Desktop\16-logs-profiling-debug\node_modules\express\lib\utils.js:271:32
+      2    2.0%      Function: ^cookieParser C:\Users\Leo\Desktop\16-logs-profiling-debug\node_modules\cookie-parser\index.js:44:32
+      2  100.0%        LazyCompile: *trim_prefix C:\Users\Leo\Desktop\16-logs-profiling-debug\node_modules\express\lib\router\index.js:288:23
+      2  100.0%          LazyCompile: *next C:\Users\Leo\Desktop\16-logs-profiling-debug\node_modules\express\lib\router\index.js:176:16
+      2  100.0%            Function: ^compression C:\Users\Leo\Desktop\16-logs-profiling-debug\node_modules\compression\index.js:59:31
+      2    2.0%      Function: ^Hash node:internal/crypto/hash:58:14
+      2  100.0%        Function: ^createHash node:crypto:129:20
+      2  100.0%          Function: ^entitytag C:\Users\Leo\Desktop\16-logs-profiling-debug\node_modules\etag\index.js:39:20
+      2  100.0%            Function: ^etag C:\Users\Leo\Desktop\16-logs-profiling-debug\node_modules\etag\index.js:70:15
+      2    2.0%      C:\Program Files\nodejs\node.exe
+      1   50.0%        LazyCompile: ~populateMaps C:\Users\Leo\Desktop\16-logs-profiling-debug\node_modules\mime-types\index.js:154:23
+      1  100.0%          Function: ~<anonymous> C:\Users\Leo\Desktop\16-logs-profiling-debug\node_modules\mime-types\index.js:1:1
+      1  100.0%            Function: ^Module._compile node:internal/modules/cjs/loader:1057:37
+      1   50.0%        Function: ^normalize node:path:304:12
+      1  100.0%          Function: ^pipe C:\Users\Leo\Desktop\16-logs-profiling-debug\node_modules\send\index.js:510:43
+      1  100.0%            Function: ^serveStatic C:\Users\Leo\Desktop\16-logs-profiling-debug\node_modules\serve-static\index.js:72:31
+      1    1.0%      LazyCompile: ~yargsParser.detailed C:\Users\Leo\Desktop\16-logs-profiling-debug\node_modules\yargs-parser\build\index.cjs:1041:33
+      1  100.0%        LazyCompile: ~<anonymous> C:\Users\Leo\Desktop\16-logs-profiling-debug\node_modules\yargs\build\index.cjs:1:56117
+      1  100.0%          LazyCompile: ~parse C:\Users\Leo\Desktop\16-logs-profiling-debug\node_modules\yargs\build\index.cjs:1:38985
+      1  100.0%            LazyCompile: ~get C:\Users\Leo\Desktop\16-logs-profiling-debug\node_modules\yargs\build\index.cjs:1:60647
+      1    1.0%      LazyCompile: ~urlParse node:url:152:18
+      1  100.0%        LazyCompile: ~OAuth2Strategy C:\Users\Leo\Desktop\16-logs-profiling-debug\node_modules\passport-oauth2\lib\strategy.js:77:24
+      1  100.0%          LazyCompile: ~Strategy C:\Users\Leo\Desktop\16-logs-profiling-debug\node_modules\passport-facebook\lib\strategy.js:48:18
+      1  100.0%            Function: ~<anonymous> C:\Users\Leo\Desktop\16-logs-profiling-debug\server.js:1:1
+      1    1.0%      LazyCompile: ~undestroy node:internal/streams/destroy:160:19
+      1  100.0%        LazyCompile: ~initSocketHandle node:net:254:26
+      1  100.0%          LazyCompile: ~Socket node:net:283:16
+      1  100.0%            LazyCompile: ~onconnection node:net:1544:22
+      1    1.0%      LazyCompile: ~tryReadSync node:fs:429:21
+      1  100.0%        LazyCompile: ~readFileSync node:fs:450:22
+      1  100.0%          LazyCompile: ~Module._extensions..js node:internal/modules/cjs/loader:1112:37
+      1  100.0%            LazyCompile: ~Module.load node:internal/modules/cjs/loader:969:33
+      1    1.0%      LazyCompile: ~stat node:internal/modules/cjs/loader:151:14
+      1  100.0%        LazyCompile: ~Module._findPath node:internal/modules/cjs/loader:494:28
+      1  100.0%          LazyCompile: ~resolveMainPath node:internal/modules/run_main:15:25
+      1  100.0%            LazyCompile: ~executeUserEntryPoint node:internal/modules/run_main:70:31
+      1    1.0%      LazyCompile: ~realpathSync node:fs:2412:22
+      1  100.0%        LazyCompile: ~toRealPath node:internal/modules/cjs/loader:393:20
+      1  100.0%          LazyCompile: ~Module._findPath node:internal/modules/cjs/loader:494:28
+      1  100.0%            LazyCompile: ~resolveMainPath node:internal/modules/run_main:15:25
+      1    1.0%      LazyCompile: ~prepareMainThreadExecution node:internal/bootstrap/pre_execution:22:36
+      1  100.0%        Function: ~<anonymous> node:internal/main/run_main_module:1:1
+      1    1.0%      LazyCompile: ~parserOnHeadersComplete node:_http_common:77:33
+      1    1.0%      LazyCompile: ~openSync node:fs:576:18
+      1  100.0%        LazyCompile: ~readFileSync node:fs:450:22
+      1  100.0%          LazyCompile: ~Module._extensions..js node:internal/modules/cjs/loader:1112:37
+      1  100.0%            LazyCompile: ~Module.load node:internal/modules/cjs/loader:969:33
+      1    1.0%      LazyCompile: ~nocompress C:\Users\Leo\Desktop\16-logs-profiling-debug\node_modules\compression\index.js:134:25
+      1  100.0%        LazyCompile: ~onResponseHeaders C:\Users\Leo\Desktop\16-logs-profiling-debug\node_modules\compression\index.js:140:47
+      1  100.0%          LazyCompile: ~writeHead C:\Users\Leo\Desktop\16-logs-profiling-debug\node_modules\on-headers\index.js:28:29
+      1  100.0%            LazyCompile: ~writeHead C:\Users\Leo\Desktop\16-logs-profiling-debug\node_modules\on-headers\index.js:28:29
+      1    1.0%      LazyCompile: ~loadParser C:\Users\Leo\Desktop\16-logs-profiling-debug\node_modules\express\node_modules\body-parser\index.js:132:21
+      1  100.0%        LazyCompile: ~get C:\Users\Leo\Desktop\16-logs-profiling-debug\node_modules\express\node_modules\body-parser\index.js:122:23
+      1  100.0%          Function: ~<anonymous> C:\Users\Leo\Desktop\16-logs-profiling-debug\node_modules\express\lib\express.js:1:1
+      1  100.0%            LazyCompile: ~Module._compile node:internal/modules/cjs/loader:1057:37
+      1    1.0%      LazyCompile: ~getPathFromURLWin32 node:internal/url:1360:29
+      1  100.0%        LazyCompile: ~fileURLToPath node:internal/url:1413:23
+      1  100.0%          LazyCompile: ~finalizeEsmResolution node:internal/modules/cjs/loader:939:31
+      1  100.0%            Function: ^resolveExports node:internal/modules/cjs/loader:472:24
+      1    1.0%      LazyCompile: ~generate C:\Users\Leo\Desktop\16-logs-profiling-debug\node_modules\express-session\index.js:363:22
+      1  100.0%        LazyCompile: ~session C:\Users\Leo\Desktop\16-logs-profiling-debug\node_modules\express-session\index.js:179:26
+      1  100.0%          Function: ^handle C:\Users\Leo\Desktop\16-logs-profiling-debug\node_modules\express\lib\router\layer.js:86:49
+      1  100.0%            LazyCompile: ~trim_prefix C:\Users\Leo\Desktop\16-logs-profiling-debug\node_modules\express\lib\router\index.js:288:23
+      1    1.0%      LazyCompile: ~doWrite C:\Users\Leo\Desktop\16-logs-profiling-debug\node_modules\readable-stream\lib\_stream_writable.js:404:17
+      1  100.0%        LazyCompile: ~writeOrBuffer C:\Users\Leo\Desktop\16-logs-profiling-debug\node_modules\readable-stream\lib\_stream_writable.js:363:23
+      1  100.0%          LazyCompile: ~Writable.write C:\Users\Leo\Desktop\16-logs-profiling-debug\node_modules\readable-stream\lib\_stream_writable.js:288:37
+      1  100.0%            LazyCompile: ~DerivedLogger.<computed> C:\Users\Leo\Desktop\16-logs-profiling-debug\node_modules\winston\lib\winston\create-logger.js:71:47
+      1    1.0%      LazyCompile: ~createWritableStdioStream node:internal/bootstrap/switches/is_main_thread:41:35
+      1  100.0%        LazyCompile: ~getStdout node:internal/bootstrap/switches/is_main_thread:125:19
+      1  100.0%          Function: ~<anonymous> C:\Users\Leo\Desktop\16-logs-profiling-debug\node_modules\yargs\build\index.cjs:1:1
+      1  100.0%            Function: ^Module._compile node:internal/modules/cjs/loader:1057:37
+      1    1.0%      LazyCompile: ~createHttpErrorConstructor C:\Users\Leo\Desktop\16-logs-profiling-debug\node_modules\http-errors\index.js:118:37
+      1  100.0%        Function: ~<anonymous> C:\Users\Leo\Desktop\16-logs-profiling-debug\node_modules\http-errors\index.js:1:1
+      1  100.0%          Function: ^Module._compile node:internal/modules/cjs/loader:1057:37
+      1  100.0%            LazyCompile: ~Module._extensions..js node:internal/modules/cjs/loader:1112:37
+      1    1.0%      LazyCompile: ~compileForInternalLoader node:internal/bootstrap/loaders:299:27
+      1  100.0%        LazyCompile: ~nativeModuleRequire node:internal/bootstrap/loaders:332:29
+      1  100.0%          Function: ~<anonymous> node:internal/modules/esm/module_map:1:1
+      1  100.0%            LazyCompile: ~compileForInternalLoader node:internal/bootstrap/loaders:299:27
+      1    1.0%      LazyCompile: ~afterWrite C:\Users\Leo\Desktop\16-logs-profiling-debug\node_modules\readable-stream\lib\_stream_writable.js:466:20
+      1  100.0%        LazyCompile: ~onwrite C:\Users\Leo\Desktop\16-logs-profiling-debug\node_modules\readable-stream\lib\_stream_writable.js:444:17
+      1  100.0%          LazyCompile: ~WritableState.onwrite C:\Users\Leo\Desktop\16-logs-profiling-debug\node_modules\readable-stream\lib\_stream_writable.js:159:27
+      1  100.0%            LazyCompile: ~_write C:\Users\Leo\Desktop\16-logs-profiling-debug\node_modules\winston-transport\index.js:69:51
+      1    1.0%      LazyCompile: ~Socket._final node:net:427:35
+      1  100.0%        LazyCompile: ~callFinal node:internal/streams/writable:662:19
+      1  100.0%          LazyCompile: ~prefinish node:internal/streams/writable:719:19
+      1  100.0%            Function: ^finishMaybe node:internal/streams/writable:731:21
+      1    1.0%      LazyCompile: ~<anonymous> C:\Users\Leo\Desktop\16-logs-profiling-debug\node_modules\yargs\build\index.cjs:1:47065
+      1  100.0%        LazyCompile: ~<anonymous> C:\Users\Leo\Desktop\16-logs-profiling-debug\node_modules\yargs\build\index.cjs:1:47432
+      1  100.0%          LazyCompile: ~describe C:\Users\Leo\Desktop\16-logs-profiling-debug\node_modules\yargs\build\index.cjs:1:33781
+      1  100.0%            LazyCompile: ~addHelpOpt C:\Users\Leo\Desktop\16-logs-profiling-debug\node_modules\yargs\build\index.cjs:1:28820
+      1    1.0%      LazyCompile: *next C:\Users\Leo\Desktop\16-logs-profiling-debug\node_modules\express\lib\router\index.js:176:16
+      1  100.0%        Function: ^strategy.pass C:\Users\Leo\Desktop\16-logs-profiling-debug\node_modules\passport\lib\middleware\authenticate.js:345:31
+      1  100.0%          Function: ^SessionStrategy.authenticate C:\Users\Leo\Desktop\16-logs-profiling-debug\node_modules\passport\lib\strategies\session.js:45:50
+      1  100.0%            Function: ^attempt C:\Users\Leo\Desktop\16-logs-profiling-debug\node_modules\passport\lib\middleware\authenticate.js:180:22
+      1    1.0%      Function: ~<anonymous> node:internal/fs/promises:1:1
+      1  100.0%        LazyCompile: ~compileForInternalLoader node:internal/bootstrap/loaders:299:27
+      1  100.0%          LazyCompile: ~nativeModuleRequire node:internal/bootstrap/loaders:332:29
+      1  100.0%            Function: ~<anonymous> node:internal/modules/esm/get_source:1:1
+      1    1.0%      Function: ~<anonymous> C:\Users\Leo\Desktop\16-logs-profiling-debug\node_modules\supports-color\index.js:1:1
+      1  100.0%        Function: ^Module._compile node:internal/modules/cjs/loader:1057:37
+      1  100.0%          Function: ^Module._extensions..js node:internal/modules/cjs/loader:1112:37
+      1  100.0%            Function: ^Module.load node:internal/modules/cjs/loader:969:33
+      1    1.0%      Function: ^wrapmethods C:\Users\Leo\Desktop\16-logs-profiling-debug\node_modules\express-session\index.js:394:25
+      1  100.0%        Function: ^generate C:\Users\Leo\Desktop\16-logs-profiling-debug\node_modules\express-session\index.js:363:22
+      1  100.0%          Function: ^session C:\Users\Leo\Desktop\16-logs-profiling-debug\node_modules\express-session\index.js:179:26
+      1  100.0%            Function: ^handle C:\Users\Leo\Desktop\16-logs-profiling-debug\node_modules\express\lib\router\layer.js:86:49
+      1    1.0%      Function: ^vary C:\Users\Leo\Desktop\16-logs-profiling-debug\node_modules\vary\index.js:133:15
+      1  100.0%        Function: ^onResponseHeaders C:\Users\Leo\Desktop\16-logs-profiling-debug\node_modules\compression\index.js:140:47
+      1  100.0%          Function: ^writeHead C:\Users\Leo\Desktop\16-logs-profiling-debug\node_modules\on-headers\index.js:28:29
+      1  100.0%            Function: ^writeHead C:\Users\Leo\Desktop\16-logs-profiling-debug\node_modules\on-headers\index.js:28:29
+      1    1.0%      Function: ^update node:internal/crypto/hash:95:40
+      1  100.0%        Function: ^entitytag C:\Users\Leo\Desktop\16-logs-profiling-debug\node_modules\etag\index.js:39:20
+      1  100.0%          Function: ^etag C:\Users\Leo\Desktop\16-logs-profiling-debug\node_modules\etag\index.js:70:15
+      1  100.0%            Function: ^generateETag C:\Users\Leo\Desktop\16-logs-profiling-debug\node_modules\express\lib\utils.js:271:32
+      1    1.0%      Function: ^trim_prefix C:\Users\Leo\Desktop\16-logs-profiling-debug\node_modules\express\lib\router\index.js:288:23
+      1  100.0%        LazyCompile: *next C:\Users\Leo\Desktop\16-logs-profiling-debug\node_modules\express\lib\router\index.js:176:16
+      1  100.0%          Function: ^session C:\Users\Leo\Desktop\16-logs-profiling-debug\node_modules\express-session\index.js:179:26
+      1  100.0%            Function: ^handle C:\Users\Leo\Desktop\16-logs-profiling-debug\node_modules\express\lib\router\layer.js:86:49
+      1    1.0%      Function: ^syncExports node:internal/bootstrap/loaders:287:14
+      1  100.0%        LazyCompile: ~<anonymous> node:internal/bootstrap/loaders:273:15
+      1  100.0%          C:\Program Files\nodejs\node.exe
+      1  100.0%            LazyCompile: ~getESMFacade node:internal/bootstrap/loaders:264:15
+      1    1.0%      Function: ^set maxAge C:\Users\Leo\Desktop\16-logs-profiling-debug\node_modules\express-session\session\cookie.js:83:13
+      1  100.0%        C:\Program Files\nodejs\node.exe
+      1  100.0%          LazyCompile: ~Cookie C:\Users\Leo\Desktop\16-logs-profiling-debug\node_modules\express-session\session\cookie.js:25:46
+      1  100.0%            LazyCompile: ~store.generate C:\Users\Leo\Desktop\16-logs-profiling-debug\node_modules\express-session\index.js:158:28
+      1    1.0%      Function: ^randomFillSync node:internal/crypto/random:111:24
+      1  100.0%        Function: ^randomBytes node:internal/crypto/random:91:21
+      1  100.0%          Function: ^randomBytesSync C:\Users\Leo\Desktop\16-logs-profiling-debug\node_modules\random-bytes\index.js:72:25
+      1  100.0%            Function: ^uidSync C:\Users\Leo\Desktop\16-logs-profiling-debug\node_modules\uid-safe\index.js:75:18
+      1    1.0%      Function: ^onHeaders C:\Users\Leo\Desktop\16-logs-profiling-debug\node_modules\on-headers\index.js:56:20
+      1  100.0%        Function: ^session C:\Users\Leo\Desktop\16-logs-profiling-debug\node_modules\express-session\index.js:179:26
+      1  100.0%          Function: ^handle C:\Users\Leo\Desktop\16-logs-profiling-debug\node_modules\express\lib\router\layer.js:86:49
+      1  100.0%            Function: ^trim_prefix C:\Users\Leo\Desktop\16-logs-profiling-debug\node_modules\express\lib\router\index.js:288:23
+      1    1.0%      Function: ^internalBinding node:internal/bootstrap/loaders:164:45
+      1  100.0%        Function: ~<anonymous> node:crypto:1:1
+      1  100.0%          Function: ^compileForInternalLoader node:internal/bootstrap/loaders:299:27
+      1  100.0%            Function: ^compileForPublicLoader node:internal/bootstrap/loaders:246:25
+      1    1.0%      Function: ^emitReadable_ node:internal/streams/readable:574:23
+      1  100.0%        Function: ^processTicksAndRejections node:internal/process/task_queues:68:35
+      1    1.0%      Function: ^closeSync node:fs:526:19
+      1  100.0%        Function: ^readFileSync node:fs:450:22
+      1  100.0%          Function: ^Module._extensions..js node:internal/modules/cjs/loader:1112:37
+      1  100.0%            Function: ^Module.load node:internal/modules/cjs/loader:969:33
+      1    1.0%      Function: ^addListener node:events:622:58
+      1  100.0%        Function: ^serveStatic C:\Users\Leo\Desktop\16-logs-profiling-debug\node_modules\serve-static\index.js:72:31
+      1  100.0%          LazyCompile: *trim_prefix C:\Users\Leo\Desktop\16-logs-profiling-debug\node_modules\express\lib\router\index.js:288:23
+      1  100.0%            LazyCompile: *next C:\Users\Leo\Desktop\16-logs-profiling-debug\node_modules\express\lib\router\index.js:176:16
+      1    1.0%      Function: ^_storeHeader node:_http_outgoing:374:22
+      1  100.0%        Function: ^writeHead node:_http_server:269:19
+      1  100.0%          Function: ^writeHead C:\Users\Leo\Desktop\16-logs-profiling-debug\node_modules\on-headers\index.js:28:29
+      1  100.0%            Function: ^writeHead C:\Users\Leo\Desktop\16-logs-profiling-debug\node_modules\on-headers\index.js:28:29
+      1    1.0%      Function: ^_send node:_http_outgoing:319:49
+      1  100.0%        Function: ^write_ node:_http_outgoing:730:16
+      1  100.0%          Function: ^end node:_http_outgoing:833:45
+      1  100.0%            Function: ^end C:\Users\Leo\Desktop\16-logs-profiling-debug\node_modules\compression\index.js:92:28
+      1    1.0%      Function: ^_dump node:_http_incoming:364:49
+      1  100.0%        Function: ^resOnFinish node:_http_server:788:21
+      1  100.0%          Function: ^emit node:events:474:44
+      1  100.0%            Function: ^onFinish node:_http_outgoing:828:18
+      1    1.0%      Function: ^_destroy node:_http_incoming:176:55
+      1  100.0%        Function: ^_destroy node:internal/streams/destroy:70:18
+      1  100.0%          Function: ^destroy node:internal/streams/destroy:32:17
+      1  100.0%            Function: ^endReadableNT node:internal/streams/readable:1338:23
+      1    1.0%      Function: ^<anonymous> C:\Users\Leo\Desktop\16-logs-profiling-debug\node_modules\express\lib\request.js:467:36
+      1  100.0%        C:\Program Files\nodejs\node.exe
+      1  100.0%          Function: ^send C:\Users\Leo\Desktop\16-logs-profiling-debug\node_modules\express\lib\response.js:107:25
+      1  100.0%            Function: ^json C:\Users\Leo\Desktop\16-logs-profiling-debug\node_modules\express\lib\response.js:239:25
+      2    1.4%    Function: ^processTicksAndRejections node:internal/process/task_queues:68:35
+      2    1.4%    Function: ^handle C:\Users\Leo\Desktop\16-logs-profiling-debug\node_modules\express\lib\router\layer.js:86:49
+      2  100.0%      Function: ^trim_prefix C:\Users\Leo\Desktop\16-logs-profiling-debug\node_modules\express\lib\router\index.js:288:23
+      2  100.0%        Function: ^<anonymous> C:\Users\Leo\Desktop\16-logs-profiling-debug\node_modules\express\lib\router\index.js:275:64
+      2  100.0%          Function: ^process_params C:\Users\Leo\Desktop\16-logs-profiling-debug\node_modules\express\lib\router\index.js:333:47
+      2  100.0%            Function: ^next C:\Users\Leo\Desktop\16-logs-profiling-debug\node_modules\express\lib\router\index.js:176:16
+      2    1.4%    Function: ^getHeader node:_http_outgoing:590:57
+      2  100.0%      Function: ^res.get C:\Users\Leo\Desktop\16-logs-profiling-debug\node_modules\express\lib\response.js:793:19
+      1   50.0%        Function: ^json C:\Users\Leo\Desktop\16-logs-profiling-debug\node_modules\express\lib\response.js:239:25
+      1  100.0%          Function: ^<anonymous> C:\Users\Leo\Desktop\16-logs-profiling-debug\server.js:113:18
+      1  100.0%            Function: ^handle C:\Users\Leo\Desktop\16-logs-profiling-debug\node_modules\express\lib\router\layer.js:86:49
+      1   50.0%        Function: ^<anonymous> C:\Users\Leo\Desktop\16-logs-profiling-debug\node_modules\express\lib\request.js:467:36
+      1  100.0%          C:\Program Files\nodejs\node.exe
+      1  100.0%            Function: ^send C:\Users\Leo\Desktop\16-logs-profiling-debug\node_modules\express\lib\response.js:107:25
+

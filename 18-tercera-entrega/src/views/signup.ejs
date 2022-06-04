@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/styles.css">
+    <title>Registrarse</title>
+</head>
+<body>
+    <h1>Registrarse</h1>
+    <h2>Crea una cuenta para iniciar sesión</h2>
+    <div class="form-container">
+        <form action="/signup" method="post">
+            <input type="text" name="username" placeholder="Ingrese su nombre" required>
+            <input type="password" name="password" placeholder="Ingrese una contraseña" required>
+            <input type="email" name="email" placeholder="Ingrese una dirección de email" required>
+            <input type="text" name="tel" placeholder="Ingrese su número de teléfono" required>
+            <input type="text" name="address" placeholder="Ingrese su dirección" required>
+            <input type="number" name="age" placeholder="Ingrese su edad" required>
+            <input type="text" name="avatar" placeholder="Ingrese una imagen" required>
+            <button class="button button--primary" type="submit">Registrarse</button>
+        </form>
+    </div>
+
+    <p>Si ya tiene una cuenta inicie sesión</p>
+    <a href="/signin">
+        <button class="button button--primary">Iniciar sesión</button>
+    </a>
+</body>
+</html>

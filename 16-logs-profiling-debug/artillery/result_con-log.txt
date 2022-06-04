@@ -1,0 +1,91 @@
+Statistical profiling result from con-log-v8.log, (4974 ticks, 0 unaccounted, 0 excluded).
+
+ [Shared libraries]:
+   ticks  total  nonlib   name
+   4404   88.5%          C:\WINDOWS\SYSTEM32\ntdll.dll
+    560   11.3%          C:\Program Files\nodejs\node.exe
+      2    0.0%          C:\WINDOWS\System32\KERNEL32.DLL
+
+ [JavaScript]:
+   ticks  total  nonlib   name
+      1    0.0%   12.5%  RegExp: ^\/socket\.io/socket\.io(\.msgpack|\.esm)?(\.min)?\.js(\.map)?(?:\?|$)
+      1    0.0%   12.5%  RegExp: \u001b\[\d\d?m
+      1    0.0%   12.5%  RegExp: [^\t\x20-\x7e\x80-\xff]
+      1    0.0%   12.5%  LazyCompile: *trim_prefix C:\Users\Leo\Desktop\16-logs-profiling-debug\node_modules\express\lib\router\index.js:288:23
+      1    0.0%   12.5%  LazyCompile: *normalize node:path:304:12
+      1    0.0%   12.5%  Function: ^set maxAge C:\Users\Leo\Desktop\16-logs-profiling-debug\node_modules\express-session\session\cookie.js:83:13
+      1    0.0%   12.5%  Function: ^_addListener node:events:554:22
+      1    0.0%   12.5%  Function: ^Readable node:internal/streams/readable:181:18
+
+ [C++]:
+   ticks  total  nonlib   name
+
+ [Summary]:
+   ticks  total  nonlib   name
+      8    0.2%  100.0%  JavaScript
+      0    0.0%    0.0%  C++
+     19    0.4%  237.5%  GC
+   4966   99.8%          Shared libraries
+
+ [C++ entry points]:
+   ticks    cpp   total   name
+
+ [Bottom up (heavy) profile]:
+  Note: percentage shows a share of a particular caller in the total
+  amount of its parent calls.
+  Callers occupying less than 1.0% are not shown.
+
+   ticks parent  name
+   4404   88.5%  C:\WINDOWS\SYSTEM32\ntdll.dll
+
+    560   11.3%  C:\Program Files\nodejs\node.exe
+    473   84.5%    C:\Program Files\nodejs\node.exe
+    335   70.8%      Function: ^handleWriteReq node:internal/stream_base_commons:45:24
+    335  100.0%        Function: ^writeGeneric node:internal/stream_base_commons:147:22
+    252   75.2%          Function: ^Socket._writeGeneric node:net:769:42
+    252  100.0%            Function: ^Socket._write node:net:806:35
+     53   15.8%          LazyCompile: *_write node:internal/streams/writable:283:16
+     53  100.0%            Function: ^Writable.write node:internal/streams/writable:333:36
+     30    9.0%          LazyCompile: *writeOrBuffer node:internal/streams/writable:365:23
+     30  100.0%            Function: ^_write node:internal/streams/writable:283:16
+     17    3.6%      Function: ^compileFunction node:vm:308:25
+     17  100.0%        Function: ^wrapSafe node:internal/modules/cjs/loader:1017:18
+     17  100.0%          Function: ^Module._compile node:internal/modules/cjs/loader:1057:37
+     16   94.1%            Function: ^Module._extensions..js node:internal/modules/cjs/loader:1112:37
+      1    5.9%            LazyCompile: ~Module._extensions..js node:internal/modules/cjs/loader:1112:37
+      9    1.9%      LazyCompile: ~handleWriteReq node:internal/stream_base_commons:45:24
+      7   77.8%        Function: ^writeGeneric node:internal/stream_base_commons:147:22
+      7  100.0%          Function: ^Socket._writeGeneric node:net:769:42
+      7  100.0%            Function: ^Socket._write node:net:806:35
+      2   22.2%        LazyCompile: ~writeGeneric node:internal/stream_base_commons:147:22
+      2  100.0%          LazyCompile: ~Socket._writeGeneric node:net:769:42
+      2  100.0%            LazyCompile: ~Socket._write node:net:806:35
+      8    1.7%      Function: ^stat node:internal/modules/cjs/loader:151:14
+      5   62.5%        Function: ^Module._findPath node:internal/modules/cjs/loader:494:28
+      4   80.0%          Function: ^Module._resolveFilename node:internal/modules/cjs/loader:848:35
+      4  100.0%            Function: ^Module._load node:internal/modules/cjs/loader:757:24
+      1   20.0%          LazyCompile: ~Module._resolveFilename node:internal/modules/cjs/loader:848:35
+      1  100.0%            Function: ^Module._load node:internal/modules/cjs/loader:757:24
+      3   37.5%        Function: ^tryFile node:internal/modules/cjs/loader:384:17
+      3  100.0%          Function: ^tryExtensions node:internal/modules/cjs/loader:400:23
+      2   66.7%            Function: ^Module._findPath node:internal/modules/cjs/loader:494:28
+      1   33.3%            Function: ^tryPackage node:internal/modules/cjs/loader:338:20
+      7    1.5%      Function: ^authenticate C:\Users\Leo\Desktop\16-logs-profiling-debug\node_modules\passport\lib\middleware\authenticate.js:94:31
+      4   57.1%        Function: ^handle C:\Users\Leo\Desktop\16-logs-profiling-debug\node_modules\express\lib\router\layer.js:86:49
+      4  100.0%          Function: ^trim_prefix C:\Users\Leo\Desktop\16-logs-profiling-debug\node_modules\express\lib\router\index.js:288:23
+      3   75.0%            LazyCompile: *next C:\Users\Leo\Desktop\16-logs-profiling-debug\node_modules\express\lib\router\index.js:176:16
+      1   25.0%            Function: ^<anonymous> C:\Users\Leo\Desktop\16-logs-profiling-debug\node_modules\express\lib\router\index.js:275:64
+      3   42.9%        LazyCompile: *trim_prefix C:\Users\Leo\Desktop\16-logs-profiling-debug\node_modules\express\lib\router\index.js:288:23
+      3  100.0%          LazyCompile: *next C:\Users\Leo\Desktop\16-logs-profiling-debug\node_modules\express\lib\router\index.js:176:16
+      3  100.0%            Function: ^initialize C:\Users\Leo\Desktop\16-logs-profiling-debug\node_modules\passport\lib\middleware\initialize.js:51:29
+      5    1.1%      Function: ^writevGeneric node:internal/stream_base_commons:122:23
+      5  100.0%        Function: ^Socket._writeGeneric node:net:769:42
+      5  100.0%          Function: ^Socket._writev node:net:801:36
+      5  100.0%            Function: ^doWrite node:internal/streams/writable:398:17
+      5    1.1%      Function: ^Hash node:internal/crypto/hash:58:14
+      5  100.0%        Function: ^createHash node:crypto:129:20
+      4   80.0%          Function: ^hash C:\Users\Leo\Desktop\16-logs-profiling-debug\node_modules\express-session\index.js:596:14
+      4  100.0%            Function: ^isModified C:\Users\Leo\Desktop\16-logs-profiling-debug\node_modules\express-session\index.js:425:24
+      1   20.0%          Function: ^entitytag C:\Users\Leo\Desktop\16-logs-profiling-debug\node_modules\etag\index.js:39:20
+      1  100.0%            Function: ^etag C:\Users\Leo\Desktop\16-logs-profiling-debug\node_modules\etag\index.js:70:15
+

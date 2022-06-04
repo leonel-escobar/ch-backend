@@ -1,0 +1,11 @@
+extends ./template
+
+block formulario
+    div(class="form-container")
+        h2 Agregar productos
+        form(action="/productos" method="post")
+                input(type="text" name="title" placeholder="Nombre del producto")
+                input(type="text" name="price" placeholder="Precio del producto")
+                input(type="text" name="image" placeholder="Imagen del producto")
+                button(class="button button--primary" type="submit") Agregar producto
+        a(href="/productos") Mostrar lista de productos

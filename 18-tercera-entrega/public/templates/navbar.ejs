@@ -1,0 +1,22 @@
+<nav>
+    <div>
+        <div>
+            <span>Ecommerce</span>
+        </div>
+        <div>
+            <ul>
+                <% if (user) { %>
+                    <li>
+                        <%= user.username %> 
+                    </li>
+                    <li>
+                        <%= user.email %> 
+                    </li>
+                <% } %> 
+                <li>
+                    <a href="/logout">Cerrar sesión</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>

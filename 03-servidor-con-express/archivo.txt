@@ -1,0 +1,17 @@
+[
+    {
+        "titulo": "Remera",
+        "precio": 2500,
+        "id": 1
+    },
+    {
+        "titulo": "Buzo",
+        "precio": 3200,
+        "id": 2
+    },
+    {
+        "titulo": "Campera",
+        "precio": 5800,
+        "id": 3
+    }
+]

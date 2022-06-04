@@ -1,0 +1,112 @@
+/* ---------- CREAR BASE DE DATOS ---------- */
+
+use ecommerce
+
+/* ---------- CREAR NUEVA COLECCION ---------- */
+
+db.createCollection("productos")
+db.createCollection("mensajes")
+
+/* ---------- AGREGAR DOCUMENTOS A LA COLECCION ---------- */
+
+db.productos.insertMany([
+    {title: "Producto 1", price: 160, stock: 60},
+    {title: "Producto 2", price: 3600, stock: 90},
+    {title: "Producto 3", price: 2300, stock: 32},
+    {title: "Producto 4", price: 190, stock: 42},
+    {title: "Producto 5", price: 4200, stock: 56},
+    {title: "Producto 6", price: 2900, stock: 12},
+    {title: "Producto 7", price: 600, stock: 36},
+    {title: "Producto 8", price: 900, stock: 57},
+    {title: "Producto 9", price: 3900, stock: 67},
+    {title: "Producto 10", price: 1600, stock: 90}
+])
+
+db.mensajes.insertMany([
+    {author: "Usuario 1", date: new Date(), text: "Mensaje 1"},
+    {author: "Usuario 2", date: new Date(), text: "Mensaje 2"},
+    {author: "Usuario 3", date: new Date(), text: "Mensaje 3"},
+    {author: "Usuario 4", date: new Date(), text: "Mensaje 4"},
+    {author: "Usuario 5", date: new Date(), text: "Mensaje 5"},
+    {author: "Usuario 6", date: new Date(), text: "Mensaje 6"},
+    {author: "Usuario 7", date: new Date(), text: "Mensaje 7"},
+    {author: "Usuario 8", date: new Date(), text: "Mensaje 8"},
+    {author: "Usuario 9", date: new Date(), text: "Mensaje 9"},
+    {author: "Usuario 10", date: new Date(), text: "Mensaje 10"}
+])
+
+/* ---------- LISTAR TODOS LOS PRODUCTOS DE LA COLECCION ---------- */
+
+db.productos.find()
+db.mensajes.find()
+
+/* ---------- CANTIDAD DE DOCUMENTOS EN LA COLECCION ---------- */
+
+db.productos.estimatedDocumentCount()
+
+/* ---------- AGREGAR UN NUEVO DOCUMENTO ---------- */
+
+db.productos.insert({title: "producto 11", price: 2900, stock: 57})
+
+/* ---------- LISTAR PRODUCTO CON PRECIO MENOR A  $1000 ---------- */
+
+db.productos.find({"price": {$lt: 1000}})
+
+{ "_id" : ObjectId("622285fb368504b5079a9d7b"), "title" : "Producto 1", "price" : 160, "stock" : 60 }
+{ "_id" : ObjectId("622285fb368504b5079a9d7e"), "title" : "Producto 4", "price" : 190, "stock" : 42 }
+{ "_id" : ObjectId("622285fb368504b5079a9d81"), "title" : "Producto 7", "price" : 600, "stock" : 36 }
+{ "_id" : ObjectId("622285fb368504b5079a9d82"), "title" : "Producto 8", "price" : 900, "stock" : 57 }
+
+/* ---------- LISTAR PRODUCTOS CON PRECIOS ENTRE $1000 Y $3000 ---------- */
+
+db.productos.find({$and: [{"price": {$gte: 1000}}, {"price": {$lte: 3000}}]})
+
+{ "_id" : ObjectId("622285fb368504b5079a9d7d"), "title" : "Producto 3", "price" : 2300, "stock" : 32 }
+{ "_id" : ObjectId("622285fb368504b5079a9d80"), "title" : "Producto 6", "price" : 2900, "stock" : 12 }
+{ "_id" : ObjectId("622285fb368504b5079a9d84"), "title" : "Producto 10", "price" : 1600, "stock" : 90 }
+{ "_id" : ObjectId("62228798368504b5079a9d86"), "title" : "producto 11", "price" : 2900, "stock" : 57 }
+
+/* ---------- LISTAR PRODUCTOS CON PRECIO MAYOR A $3000 ---------- */
+
+db.productos.find({"price": {$gt: 3000}})
+
+{ "_id" : ObjectId("622285fb368504b5079a9d7c"), "title" : "Producto 2", "price" : 3600, "stock" : 90 }
+{ "_id" : ObjectId("622285fb368504b5079a9d7f"), "title" : "Producto 5", "price" : 4200, "stock" : 56 }
+{ "_id" : ObjectId("622285fb368504b5079a9d83"), "title" : "Producto 9", "price" : 3900, "stock" : 67 }
+
+/* ---------- LISTAR EL NOMBRE DEL TERCER PRODUCTO MAS BARATO ---------- */
+
+db.productos.find().sort({"price": 1}).skip(2).limit(1)
+
+{ "_id" : ObjectId("622285fb368504b5079a9d81"), "title" : "Producto 7", "price" : 600, "stock" : 36 }
+
+/* ---------- ACTUALIZAR CAMPO STOCK CON VALOR 100 ---------- */
+
+db.productos.updateMany({},{$set: {"stock": 100}})
+
+/* ---------- CAMBIAR STOCK A 0 DE PRODUCTOS CON PRECIO MAYOR A $4000 ---------- */
+
+db.productos.update({"price": {$gt: 4000}}, {$set: {"stock": 0}})
+
+/* ---------- BORRAR PRODUCTOS CON PRECIO MENOR A $1000 ---------- */
+
+db.productos.deleteMany({"price": {$lt: 1000}})
+
+/* ---------- CREAR USUARIO QUE SOLO PUEDA LEER ---------- */
+
+db.createUser({
+    user: "pepe",
+    pwd: "asd456",
+    roles: [
+        {role: "read", db: "ecommerce"}
+    ]
+})
+
+/* ---------- MENSAJE DE ERROR AL INSERTAR UN DOCUMENTO ---------- */
+
+uncaught exception: WriteCommandError({
+        "ok" : 0,
+        "errmsg" : "not authorized on ecommerce to execute command { insert: \"productos\", ordered: true, lsid: { id: UUID(\"b571d109-42f9-4df1-bbbc-0953dd3099eb\") }, $db: \"ecommerce\" }",
+        "code" : 13,
+        "codeName" : "Unauthorized"
+})

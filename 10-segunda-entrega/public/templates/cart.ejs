@@ -1,0 +1,23 @@
+<% if (products.length !== 0) { %> 
+    <table>
+        <tr>
+            <th>Imagen</th>
+            <th>Nombre</th>
+            <th>Precio</th>
+            <th>ID</th>
+            <th>Eliminar</th>
+        </tr>
+        <% products.forEach(el => { %>
+            <tr>
+                <td><img src=<%= el.image %> alt="Imagen"></td>
+                <td><%= el.title %></td>
+                <td><%= el.price %></td>
+                <td><%= el._id || el.id %> </td>
+                <td><button class="remove button button--primary" data-id=<%= el._id || el.id %>>Eliminar</button></td>
+            </tr>
+        <% }) %> 
+    </table>
+    <button class="remove-cart button button--primary">Vaciar carrito</button>
+<% } else { %>
+    <h3>No hay productos en el carrito</h3>
+<% } %> 

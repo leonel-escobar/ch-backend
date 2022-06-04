@@ -1,0 +1,23 @@
+<% if (products.length !== 0) { %>
+    <% products.forEach(el => { %> 
+        <div class="card">
+            <img src=<%= el.image %> alt="Imagen">
+            <h3><%= el.title %></h3>
+            <p><%= el.description %></p>
+            <span>Precio: $<%= el.price %> </span>
+            <div class="card__info">
+                <span>Stock: <%= el.stock %></span>
+                <span>ID: <%= el._id || el.id %></span>
+            </div>
+            <% if (admin) { %> 
+                <div class="card__buttons">
+                    <button class="edit button button--primary" data-id=<%= el._id || el.id %> data-title=<%= el.title %> 
+                        data-description=<%= el.description %> data-code=<%= el.code %> data-image=<%= el.image %>
+                        data-price=<%= el.price %> data-stock=<%= el.stock %> >Actualizar</button>
+                    <button class="delete button button--primary" data-id=<%= el._id || el.id %> >Eliminar</button>
+                </div>
+            <% } %>
+            <button class="add-product button button--primary" data-id=<%= el._id || el.id %> >Agregar al carrito</button>
+        </div>
+    <% }) %> 
+<% } %>
