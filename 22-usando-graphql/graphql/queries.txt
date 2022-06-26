@@ -1,0 +1,45 @@
+Guarda un nuevo producto
+
+mutation {
+  saveProduct(product: {
+    title: "nuevo producto",
+    image: "nueva imagen",
+    price: 123
+  }) {
+    title
+  }
+}
+
+Muestra todos los productos
+
+query{
+  getProducts{
+    id,
+    title,
+    image,
+    price
+  }
+}
+
+Actualiza un producto por su id
+
+mutation{
+  updateProduct(
+    id: "id"
+    product: {
+      title: "producto actualizado"
+      image: "imagen actualizada"
+      price: 456
+    }
+  ) {
+    id
+  }
+}
+
+Elimina un producto por su id
+
+mutation{
+  deleteProduct(id: "id") {
+  	id
+  }
+}
