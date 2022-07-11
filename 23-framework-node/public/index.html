@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="/js/ejs.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;0,500;0,700;1,400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/css/styles.css">
+    <title>Home</title>
+</head>
+<body>
+    <h1>E-commerce backend</h1>
+    <!-- Formulario -->
+    <div class="form-container">
+        <h2>Agregar productos</h2>
+        <form id="form-products">
+            <input type="text" id="product-title" name="title" placeholder="Nombre del producto">
+            <input type="number" id="product-price" name="price" placeholder="Precio del producto">
+            <input type="text" id="product-image" name="image" placeholder="Imagen del producto">
+            <button class="button button--primary" type="submit">Enviar</button>
+            <input type="hidden" name="id">
+        </form>
+    </div>
+    <div class="cards-container"></div>
+    
+    <a href="/html/cart.html">Ir al carrito</a>
+    <script src="/js/main.js"></script>
+</body>
+</html>

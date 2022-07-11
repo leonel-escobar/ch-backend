@@ -1,0 +1,110 @@
+body {
+    font-family: 'Roboto', sans-serif;
+}
+
+:root {
+    --white-color: #fff;
+    --black-color: #262626;
+    --blue-color: #154c79;
+    --brown-color: #21130d;
+    --green-color: #3e7d59;
+    --button-bg-color: #3483fa;
+    --error-red-color: #ff4040;
+}
+
+.container {
+    margin: 0 auto;
+    max-width: 968px;
+}
+
+/* ---------- Formulario ---------- */
+
+.form-container {
+    width: 250px;
+    margin: 60px 0;
+}
+
+.form-container form {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    height: 190px;
+}
+
+input {
+    max-width: 250px;
+    height: 30px;
+    border: solid 1px;
+    border-radius: 3px;
+    text-indent: 6px;
+}
+
+.button {
+    padding: 9px 12px;
+    border: none;
+    border-radius: 3px;
+    max-width: 130px;
+    cursor: pointer;
+}
+
+.button--primary {
+    color: var(--white-color);
+    background-color: var(--button-bg-color);
+}
+
+/* ---------- Productos ---------- */
+
+.cards-container {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: flex-start;
+    margin: 60px 0;
+}
+
+.card {
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+    margin-right: 20px;
+    padding: 15px;
+    width: 190px;
+    border: none;
+    border-radius: 3px;
+    background-color: var(--white-bg-color);
+    overflow: hidden;
+}
+
+.card img {
+    width: 100%;
+    height: 190px;
+    object-fit: cover;
+    object-position: top;
+}
+
+/* ---------- Tabla de productos ---------- */
+
+.table-container {
+    max-width: 650px;
+    height: 100%;
+    margin: 60px 0;
+}
+
+.table-container table {
+    width: 100%;
+    border-radius: 3px;
+    background-color: #fff;
+}
+
+.table-container tr th {
+    width: 160px;
+    height: 50px;
+}
+
+.table-container td {
+    height: 100px;
+    text-align: center;
+}
+
+.table-container img {
+    width: 80px;
+}

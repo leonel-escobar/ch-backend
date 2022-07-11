@@ -1,0 +1,15 @@
+<% if (products.length !== 0) { %>
+    <% products.forEach(el => { %> 
+        <div class="card">
+            <img src=<%= el.image %> alt="Imagen">
+            <h3><%= el.title %></h3>
+            <span>Precio: $<%= el.price %> </span>
+            <div class="card__buttons">
+                <button class="edit button button--primary" data-id=<%= el._id || el.id %> data-title=<%= el.title %> 
+                    data-image=<%= el.image %> data-price=<%= el.price %> >Actualizar</button>
+                <button class="delete button button--primary" data-id=<%= el._id || el.id %> >Eliminar</button>
+            </div>
+            <button class="add-product button button--primary" data-id=<%= el._id || el.id %> >Agregar al carrito</button>
+        </div>
+    <% }) %> 
+<% } %>
